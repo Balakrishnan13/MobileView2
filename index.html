@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Weekly Class Timetable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- PWA Manifest 
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">-->
+
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background: #f8f9fa;
+    }
+
+    #desktop-view {
+      display: block;
+    }
+
+    #mobile-view {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #desktop-view {
+        display: none;
+      }
+
+      #mobile-view {
+        display: block;
+      }
+    }
+
+    .mobile-header {
+      background: #0d6efd;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    /* Header Like Today or Tomorrow*/
+    .mobile-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Classess Card*/
+    .border-active {
+      border-left: 6px solid #28a745
+    }
+
+    /* Today Active Class Boder only*/
+    .border-upcoming {
+      border-left: 6px solid #856404
+    }
+
+    /* Today and Tomorrow Upcoming Class Boder only*/
+    .border-tomorrow_upcoming {
+      border-left: 6px solid #155724
+    }
+
+    /*Tomorrow Upcoming Class Boder only*/
+    .tomorrow_upcoming-badge {
+      font-size: 0.9rem;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    /*-- For tomorrow going to start Class --*/
+    .border-finished {
+      opacity: 0.45;
+    }
+
+    /* For Fade Class */
+    .next-info {
+      background: #fff3cd;
+      border-left: 6px solid #ffc107;
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* Message Tag For Tomorrow Classes Like Today all classes are ended*/
+    .T_next-info {
+      background: #9cd8aa;
+      border-left: 6px solid #107f2a;
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* Message Tag For Tomorrow Classes Like Today all classes are ended*/
+    .countdown-badge {
+      font-size: 0.9rem;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    /*-- For counting time Text --*/
+    .upcoming-badge {
+      font-size: 0.9rem;
+      color: #856404;
+      font-weight: bold;
+    }
+
+    /*-- For Today going to start Class --*/
+  </style>
+</head>
+
+<body>
+  <div class="container py-4">
+    <h1 class="fw-bold text-center mb-4">Weekly Class Timetable</h1>
+
+    <!-- Desktop Table -->
+    <div id="desktop-view">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-custom">
+          <thead class="table-primary text-center">
+            <tr>
+              <th>Class / Day</th>
+              <th>Sunday</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Class 1</th>
+              <td>4:30 PM - 6:00 PM</td>
+              <td>7:30 AM - 9:00 AM</td>
+              <td>3:00 PM - 4:30 PM</td>
+              <td>12:00 PM - 1:30 PM</td>
+              <td>1:30 PM - 3:00 PM</td>
+              <td>10:30 AM - 12:00 PM</td>
+              <td>9:00 AM - 10:30 AM</td>
+            </tr>
+            <tr>
+              <th>Class 2</th>
+              <td>3:00 PM - 4:30 PM</td>
+              <td>1:30 PM - 3:00 PM</td>
+              <td>12:00 PM - 1:30 PM</td>
+              <td>10:30 AM - 12:00 PM</td>
+              <td>9:00 AM - 10:30 AM</td>
+              <td>7:30 AM - 9:00 AM</td>
+              <td>6:00 AM - 7:00 AM</td>
+            </tr>
+            <tr>
+              <th>Class 3</th>
+              <td>12:00 PM - 1:30 PM</td>
+              <td>10:30 AM - 12:00 PM</td>
+              <td>9:00 AM - 10:30 AM</td>
+              <td>7:30 AM - 9:00 AM</td>
+              <td>6:00 AM - 7:30 AM</td>
+              <td>3:00 PM - 4:30 PM</td>
+              <td>1:30 PM - 3:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Mobile View -->
+    <div id="mobile-view"></div>
+  </div>
+  <script>
+    // ------------------------------
+    // TIME HELPERS
+    // ------------------------------
+    function parseTimeToMinutes(str) {
+      const [time, mod] = str.trim().split(" ");
+      let [h, m] = time.split(":").map(Number);
+      if (mod === "PM" && h !== 12) h += 12;
+      if (mod === "AM" && h === 12) h = 0;
+      return h * 60 + m;
+    }
+
+    function parseRange(str) {
+      if (!str.includes("-")) return [0, 0];
+      const [s, e] = str.split("-").map(x => x.trim());
+      return [parseTimeToMinutes(s), parseTimeToMinutes(e)];
+    }
+
+    function formatCountdown(mins) {
+      let h = Math.floor(mins / 60);
+      let m = mins % 60;
+      return `${h > 0 ? h + "h " : ""}${m}m`;
+    }
+
+    // ------------------------------
+    // MAIN FUNCTION
+    // ------------------------------
+    function renderMobileView() {
+
+      const now = new Date();
+      //const now = new Date("Fri Nov 28 2025 16:57:36 GMT+0530 (India Standard Time)");
+
+      const today = now.getDay();
+      const tomorrow = (today + 1) % 7;
+      const minutesNow = now.getHours() * 60 + now.getMinutes();
+      const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+      const mobile = document.getElementById("mobile-view");
+      mobile.innerHTML = `
+    <div class="mobile-header">
+      <h4 id "tomorrowUpTag"></h4>
+      <h4 id="todayTag">Today: ${dayNames[today]}</h4>
+      <h4 id="tomorrowTag" class="d-none">Tomorrow: ${dayNames[tomorrow]}</h4>
+    </div>
+  `;
+
+      const rows = document.querySelectorAll("#desktop-view tbody tr");
+
+      // -----------------------------------------
+      // LOAD TODAY classes (original order)
+      // -----------------------------------------
+      let todayClasses = [];
+      rows.forEach(row => {
+        const name = row.children[0].innerText.trim();
+        const timeStr = row.children[today + 1].innerText.trim();
+        const [start, end] = parseRange(timeStr);
+        todayClasses.push({ name, timeStr, start, end });
+      });
+
+      // Sorted copy for logic only
+      let sortedToday = [...todayClasses].sort((a, b) => a.start - b.start);
+
+      let running = sortedToday.find(c => minutesNow >= c.start && minutesNow < c.end);
+      let upcoming = sortedToday.filter(c => minutesNow < c.start);
+      let firstUpcoming = upcoming.length > 0 ? upcoming[0] : null;
+
+      let finishedCount = todayClasses.filter(c => minutesNow >= c.end).length;
+
+      // -----------------------------------------
+      // CASE 1: ALL TODAY CLASSES ARE FINISHED
+      // -----------------------------------------
+      if (finishedCount === todayClasses.length) {
+
+        document.getElementById("todayTag").classList.add("d-none");
+        document.getElementById("tomorrowTag").classList.remove("d-none");
+
+        // mobile.innerHTML += `
+        //   <div class="T_next-info mb-3"><strong>Today all classes are ended.</strong></div>
+        // `;
+        //document.getElementById("tomorrowUpTag").innerHTML = `<div class="T_next-info mb-3"><strong>Today all classes are ended.</strong></div>`;
+
+        // Load tomorrow classes (original order)
+        let tmr = [];
+        rows.forEach(row => {
+          const name = row.children[0].innerText.trim();
+          const timeStr = row.children[tomorrow + 1].innerText.trim();
+          const [start] = parseRange(timeStr);
+          tmr.push({ name, timeStr, start });
+        });
+
+        // First class tomorrow
+        let sorted = [...tmr].sort((a, b) => a.start - b.start);
+        let firstTmr = sorted[0];
+
+        // -----------------------------------------
+        // SHOW TOMORROW'S CLASSES FIRST
+        // -----------------------------------------
+        tmr.forEach(c => {
+          const highlight = (c.name === firstTmr.name);
+          mobile.innerHTML += `
+        <div class="mobile-card ${highlight ? "border-tomorrow_upcoming" : ""}">
+          <h5>${c.name} ${highlight ? "<span class='tomorrow_upcoming-badge'>(Next)</span>" : ""}</h5>
+          <p>${c.timeStr}</p>
+        </div>
+      `;
+        });
+
+        // -----------------------------------------
+        // THEN SHOW TODAY'S (all faded)
+        // -----------------------------------------
+        mobile.innerHTML += `
+      <div class="next-info my-3">
+        <strong>Today’s Classes (Already Finished)</strong>
+      </div>
+    `;
+
+        todayClasses.forEach(c => {
+          mobile.innerHTML += `
+        <div class="mobile-card border-finished">
+          <h5>${c.name}</h5>
+          <p>${c.timeStr}</p>
+          <p class="text-muted small">✔ Finished</p>
+        </div>
+      `;
+        });
+
+        return;
+      }
+
+      // -----------------------------------------
+      // CASE 2: SHOW TODAY CLASSES (normal logic)
+      // -----------------------------------------
+      todayClasses.forEach(c => {
+
+        // Running
+        if (running && c.name === running.name) {
+          const endIn = c.end - minutesNow;
+          mobile.innerHTML += `
+        <div class="mobile-card border-active">
+          <h5>${c.name} <span class="countdown-badge">(Running)</span></h5>
+          <p>${c.timeStr}</p>
+          <p class="countdown-badge">⏳ Ends in ${formatCountdown(endIn)}</p>
+        </div>
+      `;
+          return;
+        }
+
+        // First upcoming highlighted
+        if (!running && firstUpcoming && c.name === firstUpcoming.name) {
+          const startIn = c.start - minutesNow;
+          mobile.innerHTML += `
+        <div class="mobile-card border-upcoming">
+          <h5>${c.name} <span class="upcoming-badge">(Next)</span></h5>
+          <p>${c.timeStr}</p>
+          <p class="upcoming-badge">🕒 Starts in ${formatCountdown(startIn)}</p>
+        </div>
+      `;
+          return;
+        }
+
+        // Finished
+        if (minutesNow >= c.end) {
+          mobile.innerHTML += `
+        <div class="mobile-card border-finished">
+          <h5>${c.name}</h5>
+          <p>${c.timeStr}</p>
+          <p class="text-muted small">✔ Finished</p>
+        </div>
+      `;
+          return;
+        }
+
+        // Normal class
+        mobile.innerHTML += `
+      <div class="mobile-card">
+        <h5>${c.name}</h5>
+        <p>${c.timeStr}</p>
+      </div>
+    `;
+      });
+    }
+
+    renderMobileView();
+    setInterval(renderMobileView, 60000);
+  </script>
+
+
+
+
+</body>
+
+</html>
