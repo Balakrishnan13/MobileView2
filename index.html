@@ -130,9 +130,11 @@
 <body>
   <div class="container py-4">
     <h1 class="fw-bold text-center">Weekly Class Timetable</h1>
-  <p id="nowTimer" class="text-center "></p>
-  <h4 id="TodayInfo"></h4>
+
+
   <div class="d-flex justify-content-between">
+      <h4 id="TodayInfo"></h4>
+        <p id="nowTimer" class="text-center "></p>
     <p id="starInfo"></p>
     <p id="starInfoTomorrow" class="d-none" ></p>
   </div>
@@ -631,8 +633,8 @@
         "","சோர்வு","யோகம்","தானம்","நிறைவு","பிரிவு","ஈகை","ஓய்வு","நட்பு",  "உதவி",
         "முயற்சி","சின்தன்னை","வரவு","வாழ்வு","முயற்சி","எதிர்ப்பு","சினம்","ஓய்வு","லாபம்",  "சலனம்","அமைதி"];
 
-        document.getElementById("starInfo").textContent=`Today Star : ${stars[date]}`;
-        document.getElementById("starInfoTomorrow").textContent=`Tomorrow Star : ${stars[date+1]}`;
+        document.getElementById("starInfo").textContent=`Star : ${stars[date]}`;
+        document.getElementById("starInfoTomorrow").textContent=`T_Star : ${stars[date+1]}`;
       //*==== Star Ends*//
 
       const table = document.getElementById("scheduleTable");
@@ -680,7 +682,7 @@
       }
 
       document.getElementById("TodayInfo").textContent =
-        active ? `Now : ${names[active]}` : "No one is using the pen now";
+        active ? `${names[active]}` : "No one is using the pen now";
       const todayinfos = document.getElementById(`TodayInfo`);
       if (active) {
         if (names[active] === "MM") todayinfos.classList.add("text-danger");
