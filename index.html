@@ -113,6 +113,15 @@
       color: #856404;
       font-weight: bold;
     }
+    .Bala-badge {
+      bottom: 4px;
+      right: 4px;
+      background:whitesmoke;
+      color: gray;
+      font-size: 0.9rem;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
 
     /*-- For Today going to start Class --*/
   </style>
@@ -120,7 +129,13 @@
 
 <body>
   <div class="container py-4">
-    <h1 class="fw-bold text-center mb-4">Weekly Class Timetable</h1>
+    <h1 class="fw-bold text-center">Weekly Class Timetable</h1>
+  <p id="nowTimer" class="text-center "></p>
+  <h4 id="TodayInfo"></h4>
+  <div class="d-flex justify-content-between">
+    <p id="starInfo"></p>
+    <p id="starInfoTomorrow" class="d-none" ></p>
+  </div>
 
     <!-- Desktop Table -->
     <div id="desktop-view">
@@ -173,7 +188,249 @@
         </table>
       </div>
     </div>
+ <!-- DAILY SCHEDULE -->
+  <div class="container">
 
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover table-customs d-none" id="scheduleTable">
+        <thead class="table-primary">
+          <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Amar</th>
+            <th>Sithath</th>
+            <th>MM</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- FULL MonTH ROWS (unchanged from your input) -->
+          <!-- DO NOT DELETE — This is your actual data -->
+          <!-- ******************************************** -->
+
+          <tr>
+            <td>1-Dec-25</td>
+            <td>Mon</td>
+            <td>12:00 AM - 06:14 AM</td>
+            <td>06:14 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2-Dec-25</td>
+            <td>Tue</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>3-Dec-25 </td>
+            <td>Wed</td>
+            <td>04:47 PM - 11:59 PM</td>
+            <td>12:00 AM - 04:47 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>4-Dec-25</td>
+            <td>Thu</td>
+            <td>12:00 AM - 06:15 AM</td>
+            <td>-</td>
+            <td>06:15 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>5-Dec-25</td>
+            <td>Fri</td>
+            <td>-</td>
+            <td>01:32 PM - 11:59 PM</td>
+            <td>12:00 AM - 01:32 PM</td>
+          </tr>
+          <tr>
+            <td>6-Dec-25</td>
+            <td>Sat</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>7-Dec-25</td>
+            <td>Sun</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>8-Dec-25</td>
+            <td>Mon</td>
+            <td>06:17 AM - 09:39 AM</td>
+            <td><span id="8" class="">12:00 AM - 06:17 AM;</span> 09:39 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>9-Dec-25</td>
+            <td>Tue</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>10-Dec-25</td>
+            <td>Wed</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>11-Dec-25</td>
+            <td>Thu</td>
+            <td>06:19 AM - 08:44 AM</td>
+            <td><span id="11" class="">12:00 AM - 06:19 AM;</span> 08:44 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>12-Dec-25</td>
+            <td>Fri</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>13-Dec-25</td>
+            <td>Sat</td>
+            <td>-</td>
+            <td>12:00 AM - 06:20 AM</td>
+            <td>06:20 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>14-Dec-25</td>
+            <td>Sun</td>
+            <td>06:21 AM - 12:06 PM</td>
+            <td>12:06 PM - 11:59 PM</td>
+            <td>12:00 AM - 06:21 AM</td>
+          </tr>
+          <tr>
+            <td>15-Dec-25</td>
+            <td>Mon</td>
+            <td>02:09 PM - 11:59 PM</td>
+            <td>12:00 AM - 02:09 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>16-Dec-25</td>
+            <td>Tue</td>
+            <td>12:00 AM - 06:22 AM</td>
+            <td>06:22 AM - 04:28 PM</td>
+            <td>04:28 PM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>17-Dec-25</td>
+            <td>Wed</td>
+            <td>-</td>
+            <td>06:22 AM - 11:59 PM</td>
+            <td>12:00 AM - 06:22 AM</td>
+          </tr>
+          <tr>
+            <td>18-Dec-25</td>
+            <td>Thu</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>19-Dec-25</td>
+            <td>Fri</td>
+            <td>-</td>
+            <td>12:00 AM - 06:23 AM</td>
+            <td>06:23 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>20-Dec-25</td>
+            <td>Sat</td>
+            <td>12:04 AM - 06:23 AM</td>
+            <td>06:23 AM - 11:59 PM</td>
+            <td>12:00 AM - 12:04 AM</td>
+          </tr>
+          <tr>
+            <td>21-Dec-25</td>
+            <td>Sun</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>22-Dec-25</td>
+            <td>Mon</td>
+            <td>04:07 AM - 06:24 AM</td>
+            <td>12:00 AM - 04:07 AM</td>
+            <td>06:24 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>23-Dec-25</td>
+            <td>Tue</td>
+            <td>05:31 AM - 06:24 AM</td>
+            <td>06:24 AM - 11:59 PM</td>
+            <td>12:00 AM - 05:31 AM</td>
+          </tr>
+          <tr>
+            <td>24-Dec-25</td>
+            <td>Wed</td>
+            <td>-</td>
+            <td>12:00 AM - 06:24 AM</td>
+            <td>06:24 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>25-Dec-25</td>
+            <td>Thu</td>
+            <td>-</td>
+            <td>06:25 AM - 06:40 AM</td>
+            <td><span id="25" class="">12:00 AM - 06:25 AM;</span> 06:40 AM - 11:59 PM</td>
+          </tr>
+          <tr>
+            <td>26-Dec-25</td>
+            <td>Fri</td>
+            <td>-</td>
+            <td>06:25 AM - 11:59 PM</td>
+            <td>12:00 AM - 06:25 AM</td>
+          </tr>
+          <tr>
+            <td>27-Dec-25</td>
+            <td>Mon6</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>28-Dec-25</td>
+            <td>Sun</td>
+            <td>06:25 AM - 11:59 PM</td>
+            <td>12:00 AM - 05:18 AM</td>
+            <td>05:18 AM - 06:25 AM</td>
+          </tr>
+          <tr>
+            <td>29-Dec-25</td>
+            <td>Mon</td>
+            <td>12:00 AM - 04:04 AM</td>
+            <td>04:04 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>30-Dec-25</td>
+            <td>Tue</td>
+            <td>-</td>
+            <td>12:00 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>31-Dec-25</td>
+            <td>Wed</td>
+            <td>06:25 AM - 11:26 AM</td>
+            <td><span id="31" class="">12:00 AM - 06:25 AM;</span> 11:26 AM - 11:59 PM</td>
+            <td>-</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
     <!-- Mobile View -->
     <div id="mobile-view"></div>
   </div>
@@ -213,13 +470,14 @@
       const tomorrow = (today + 1) % 7;
       const minutesNow = now.getHours() * 60 + now.getMinutes();
       const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const dayInfos=["🔗 2ⁿᵈ","1ˢᵗ ⁺⁺","+","🔗1ˢᵗ ⁺","1ˢᵗ ⁺⁺","+","1ˢᵗ ⁺⁺",]
 
       const mobile = document.getElementById("mobile-view");
       mobile.innerHTML = `
     <div class="mobile-header">
       <h4 id "tomorrowUpTag"></h4>
-      <h4 id="todayTag">Today: ${dayNames[today]}</h4>
-      <h4 id="tomorrowTag" class="d-none">Tomorrow: ${dayNames[tomorrow]}</h4>
+      <h4 id="todayTag">Today: ${dayNames[today]} <span class="Bala-badge">${dayInfos[today]}</span></h4>
+      <h4 id="tomorrowTag" class="d-none">Tomorrow: ${dayNames[tomorrow]}<span class="Bala-badge">${dayInfos[tomorrow]}</span></h4>
     </div>
   `;
 
@@ -252,6 +510,7 @@
 
         document.getElementById("todayTag").classList.add("d-none");
         document.getElementById("tomorrowTag").classList.remove("d-none");
+        document.getElementById("starInfoTomorrow").classList.remove("d-none");
 
         // mobile.innerHTML += `
         //   <div class="T_next-info mb-3"><strong>Today all classes are ended.</strong></div>
@@ -358,9 +617,95 @@
     `;
       });
     }
+     /* -----------------------------------------
+       DAILY SCHEDULE TABLE
+    ----------------------------------------- */
+    function highlightCurrentDaily() {
+      const now = new Date();
+      //const now = new Date("Fri Dec 19 2025 18:57:36 GMT+0530 (India Standard Time)"); //for setting DateTime by own
+      const date = now.getDate();
+      const minsNow = now.getHours() * 60 + now.getMinutes();
 
+      //*==== Star starts*//
+      const stars=["","","","","","","","","","","",
+        "","சோர்வு","யோகம்","தானம்","நிறைவு","பிரிவு","ஈகை","ஓய்வு","நட்பு",  "உதவி",
+        "முயற்சி","சின்தன்னை","வரவு","வாழ்வு","முயற்சி","எதிர்ப்பு","சினம்","ஓய்வு","லாபம்",  "சலனம்","அமைதி"];
+
+        document.getElementById("starInfo").textContent=`Today Star : ${stars[date]}`;
+        document.getElementById("starInfoTomorrow").textContent=`Tomorrow Star : ${stars[date+1]}`;
+      //*==== Star Ends*//
+
+      const table = document.getElementById("scheduleTable");
+      const row = table.rows[date];
+      if (!row) return;
+
+      [...row.cells].forEach(c => c.classList.add("today-col"));
+
+      let active = null;
+      const names = ["", "", "Amar", "Sithath", "MM"];
+
+      for (let i = 2; i <= 4; i++) {
+        const cell = row.cells[i];
+        const txt = cell.textContent.trim();
+        if (txt === "-" || !txt) {
+          cell.classList.add("faded");
+          continue;
+        }
+
+        const parts = txt.split(";");
+        parts.forEach(p => {
+          const [s, e] = parseRange(p.trim());
+          if (minsNow >= s && minsNow < e) {
+            active = i;
+            cell.classList.add("glow");
+            const left = e - minsNow;
+            // cell.innerHTML += `<div class="timer-badge">${formatCountdown(left)} left</div>`;
+            const badge = document.createElement("div");
+            badge.className = "timer-badge";
+            badge.textContent = `${formatCountdown(left)} left`;
+            cell.appendChild(badge);
+
+          } else if (minsNow > e && parts[1] == null) {
+            cell.classList.add("faded");
+          }
+          const time1 = document.getElementById(date);
+
+          if (parts[1] != undefined) {
+            const [s1, e1] = parseRange(parts[0].trim());
+           // if (minsNow >= e1) {time1.classList.add("text-decoration-line-through");time1.classList.add("fw-normal");}// this one
+           if (minsNow >= e1) time1.classList.add("d-none");// or this one
+          }
+
+        });
+      }
+
+      document.getElementById("TodayInfo").textContent =
+        active ? `Now : ${names[active]}` : "No one is using the pen now";
+      const todayinfos = document.getElementById(`TodayInfo`);
+      if (active) {
+        if (names[active] === "MM") todayinfos.classList.add("text-danger");
+        else if (names[active] === "Sithath") todayinfos.classList.add("text-primary");
+        else if (names[active] === "Amar") todayinfos.classList.add("text-success");
+      } else {
+        todayinfos.classList.add("text-success"); // default color if none
+      }
+
+    }
+    /* -----------------------------------------
+   clock timer start
+----------------------------------------- */
+    function refresh() {
+      const now = new Date();
+      //const time = now.toLocaleTimeString(); //  24-hour format
+        const time = now.toLocaleTimeString('en-US', { hour12: true }); // force 12-hour format
+      document.getElementById("nowTimer").innerText = time.toString();
+    }
+    refresh();
     renderMobileView();
+    highlightCurrentDaily();
     setInterval(renderMobileView, 60000);
+    setInterval(highlightCurrentDaily, 60000);
+    setInterval(refresh, 1);
   </script>
 
 
