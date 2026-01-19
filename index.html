@@ -703,6 +703,18 @@
         const time = now.toLocaleTimeString('en-US', { hour12: true }); // force 12-hour format
       document.getElementById("nowTimer").innerText = time.toString();
     }
+      function checkConnection() {
+    if (!navigator.onLine) {
+      document.body.innerHTML = `
+        <div style="text-align:center; padding:40px;">
+          <h2>No Internet Connection</h2>
+          <p>Please connect to the internet.</p>
+        </div>`;
+    }
+  }
+
+  window.addEventListener("load", checkConnection);
+  window.addEventListener("offline", checkConnection);
     refresh();
     renderMobileView();
     highlightCurrentDaily();
