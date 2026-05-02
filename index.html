@@ -113,10 +113,11 @@
       color: #856404;
       font-weight: bold;
     }
+
     .Bala-badge {
       bottom: 4px;
       right: 4px;
-      background:whitesmoke;
+      background: whitesmoke;
       color: gray;
       font-size: 0.9rem;
       padding: 2px 5px;
@@ -131,14 +132,14 @@
   <div class="container py-4">
     <h1 class="fw-bold text-center">Weekly Class Timetable</h1>
 
-<div class="py-2 text-center">
-  <div class="d-flex justify-content-between">
+    <div class="py-2 text-center">
+      <div class="d-flex justify-content-between">
         <h4 id="TodayInfo"></h4>
         <h1 id="nowTimer" class="text-center"></h1>
-        <p id="starInfo"></p>       
-  </div>
-    <p id="starInfoTomorrow" class="d-none" ></p>
-  </div>
+        <p id="starInfo"></p>
+      </div>
+      <p id="starInfoTomorrow" class="d-none"></p>
+    </div>
 
     <!-- Desktop Table -->
     <div id="desktop-view">
@@ -191,270 +192,279 @@
         </table>
       </div>
     </div>
- <!-- DAILY SCHEDULE -->
-  <div class="container">
+    <!-- DAILY SCHEDULE -->
+    <div class="container">
 
 
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped table-hover table-customs d-none" id="scheduleTable">
-        <thead class="table-primary">
-          <tr>
-            <th>Date</th>
-            <th>Day</th>
-            <th>Amar</th>
-            <th>Sithath</th>
-            <th>MM</th>
-          </tr>
-        </thead>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover table-customs d-none" id="scheduleTable">
+          <thead class="table-primary">
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Amar</th>
+              <th>Sithath</th>
+              <th>MM</th>
+            </tr>
+          </thead>
 
           <tbody>
-          <!-- FULL MonTH ROWS (unchanged from your input) -->
-          <!-- DO NOT DELETE — This is your actual data -->
-          <!-- ******************************************** -->
-          <tr id="today-1">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 04:37 PM</td>
-            <td>-</td>
-            <td>04:37 PM - 11:59 PM</td>
-          </tr>
+            <!-- FULL MonTH ROWS (unchanged from your input) -->
+            <!-- DO NOT DELETE — This is your actual data -->
+            <!-- ******************************************** -->
+            <tr id="today-1">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>02:41 AM - 05:56 AM</td>
+              <td><span id="1" class="">12:00 AM - 02:41 AM; </span>05:56 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-2">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>06:10 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:10 AM</td>
-          </tr>
+            <tr id="today-2">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-3">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-3">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 05:55 AM</td>
+              <td>05:55 AM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-4">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>06:09 AM - 09:21 PM</td>
-            <td><span id="4" class="">12:00 AM - 06:09 AM; </span>09:21 PM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-4">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>05:55 AM - 11:59 PM</td>
+              <td>12:00 AM - 05:55 AM</td>
+            </tr>
 
-          <tr id="today-5">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 06:08 AM</td>
-            <td>06:08 AM - 11:59 PM</td>
-          </tr>
+            <tr id="today-5">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:03 PM - 11:59 PM</td>
+              <td>12:00 AM - 12:03 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-6">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>06:08 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:08 AM</td>
-          </tr>
+            <tr id="today-6">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td><span id="06" class="">12:00 AM - 02:31 PM; </span>05:54 AM - 11:59 PM</td>
+              <td>-</td>
+              <td>05:54 AM - 02:31 PM</td>
+            </tr>
 
-          <tr id="today-7">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-7">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:54 AM</td>
+              <td>05:54 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-8">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>04:54 AM - 06:06 AM</td>
-            <td>12:00 AM - 04:54 AM</td>
-            <td>06:06 AM - 11:59 PM</td>
-          </tr>
+            <tr id="today-8">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 06:36 PM</td>
+              <td>06:36 PM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-9">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>06:05 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:05 AM</td>
-          </tr>
+            <tr id="today-9">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>05:53 AM - 11:59 PM</td>
+              <td>12:00 AM - 05:53 AM</td>
+            </tr>
 
-          <tr id="today-10">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-10">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td><span id="10" class="">12:00 AM - 05:56 AM; </span>05:53 AM - 11:59 PM</td>
+              <td>05:53 AM - 09:01 PM</td>
+            </tr>
 
-          <tr id="today-11">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-11">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 09:28 PM</td>
+              <td>09:28 PM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-12">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>06:04 AM - 12:33 PM</td>
-            <td>12:00 AM - 06:04 AM</td>
-            <td>12:33 PM - 11:59 PM</td>
-          </tr>
+            <tr id="today-12">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>09:26 PM - 11:59 PM</td>
+              <td>-</td>
+              <td>12:00 AM - 09:26 PM</td>
+            </tr>
 
-          <tr id="today-13">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>06:03 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:03 AM</td>
-          </tr>
+            <tr id="today-13">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:53 AM</td>
+              <td>05:53 AM - 08:18 PM</td>
+              <td>08:18 PM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-14">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 06:03 AM</td>
-            <td>06:03 AM - 11:59 PM</td>
-          </tr>
+            <tr id="today-14">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>08:06 PM - 11:59 PM</td>
+              <td>05:53 AM - 08:06 PM</td>
+              <td>12:00 AM - 05:53 AM</td>
+            </tr>
 
-          <tr id="today-15">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>06:02 AM - 01:33 PM</td>
-            <td>01:33 PM - 11:59 PM</td>
-            <td>12:00 AM - 06:02 AM</td>
-          </tr>
+            <tr id="today-15">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 06:57 PM</td>
+              <td>06:57 PM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-16">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-16">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>05:34 PM - 11:59 PM</td>
+              <td>12:00 AM - 05:34 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-17">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>06:02 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:02 AM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-17">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td><span id="17" class="">12:00 AM - 04:01 PM; </span>05:52 AM - 11:59 PM</td>
+              <td>05:52 AM - 04:01 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-18">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 06:01 AM</td>
-            <td>06:01 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-18">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 11:59 PM</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-19">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-19">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:52 AM</td>
+              <td>05:52 AM - 12:55 PM</td>
+              <td>12:55 PM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-20">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>07:52 AM - 11:59 PM</td>
-            <td>12:00 AM - 06:01 AM</td>
-            <td>06:01 AM - 07:52 AM</td>
-          </tr>
+            <tr id="today-20">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>05:52 AM - 11:59 PM</td>
+              <td>12:00 AM - 05:52 AM</td>
+            </tr>
 
-          <tr id="today-21">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 06:15 AM</td>
-            <td>06:15 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-21">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>05:52 AM - 11:59 PM</td>
+              <td>12:00 AM - 05:52 AM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-22">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td><span id="22" class="">12:00 AM - 04:22 AM; </span>09:21 PM - 11:59 PM</td>
-            <td>04:22 AM - 05:59 AM</td>
-          </tr>
+            <tr id="today-22">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:52 AM</td>
+              <td>-</td>
+              <td>05:52 AM - 11:59 PM</td>
+            </tr>
 
-          <tr id="today-23">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>05:59 AM - 11:59 PM</td>
-            <td>12:00 AM - 05:59 AM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-23">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>07:50 AM - 11:59 PM</td>
+              <td>-</td>
+              <td>12:00 AM - 07:50 AM</td>
+            </tr>
 
-          <tr id="today-24">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 05:59 AM</td>
-            <td>-</td>
-            <td>05:59 AM - 11:59 PM</td>
-          </tr>
+            <tr id="today-24">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:51 AM</td>
+              <td>07:20 AM - 11:59 PM</td>
+              <td>05:51 AM - 07:20 AM</td>
+            </tr>
 
-          <tr id="today-25">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>11:50 PM - 11:59 PM</td>
-            <td>-</td>
-            <td>12:00 AM - 11:50 PM</td>
-          </tr>
+            <tr id="today-25">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-26">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 05:58 AM</td>
-            <td>11:27 PM - 11:59 PM</td>
-            <td>05:58 AM - 11:27 PM</td>
-          </tr>
+            <tr id="today-26">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>05:51 AM - 07:46 AM</td>
+              <td><span id="26" class="">12:00 AM - 05:51 AM; </span>07:46 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-27">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>12:00 AM - 11:59 PM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-27">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td><span id="27" class="">12:00 AM - 05:51 AM; </span>08:42 AM - 11:59 PM</td>
+              <td>05:51 AM - 08:42 AM</td>
+            </tr>
 
-          <tr id="today-28">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>05:57 AM - 11:59 PM</td>
-            <td>12:00 AM - 05:57 AM</td>
-            <td>-</td>
-          </tr>
+            <tr id="today-28">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>10:11 AM - 11:59 PM</td>
+              <td>12:00 AM - 10:11 AM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-29">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>12:00 AM - 12:06 AM</td>
-            <td>12:06 AM - 05:57 AM</td>
-            <td>05:57 AM - 11:59 PM</td>
-          </tr>
+            <tr id="today-29">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>12:00 AM - 05:51 AM</td>
+              <td>05:51 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-          <tr id="today-30">
-            <td class="auto-date"></td>
-            <td class="auto-day"></td>
-            <td>-</td>
-            <td>01:10 AM - 11:59 PM</td>
-            <td>12:00 AM - 01:10 AM</td>
-          </tr>
-        </tbody>
+            <tr id="today-30">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 11:59 PM</td>
+              <td>-</td>
+            </tr>
 
-      </table>
+            <tr id="today-31">
+              <td class="auto-date"></td>
+              <td class="auto-day"></td>
+              <td>-</td>
+              <td>12:00 AM - 05:51 AM</td>
+              <td>05:51 AM - 11:59 PM</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
     </div>
-  </div>
     <!-- Mobile View -->
     <div id="mobile-view"></div>
   </div>
@@ -494,7 +504,7 @@
       const tomorrow = (today + 1) % 7;
       const minutesNow = now.getHours() * 60 + now.getMinutes();
       const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      const dayInfos=["🔗 2ⁿᵈ","1ˢᵗ ⁺⁺","+","🔗1ˢᵗ ⁺","1ˢᵗ ⁺⁺","+","1ˢᵗ ⁺⁺",]
+      const dayInfos = ["🔗 2ⁿᵈ", "1ˢᵗ ⁺⁺", "+", "🔗1ˢᵗ ⁺", "1ˢᵗ ⁺⁺", "+", "1ˢᵗ ⁺⁺",]
 
       const mobile = document.getElementById("mobile-view");
       mobile.innerHTML = `
@@ -641,9 +651,9 @@
     `;
       });
     }
-     /* -----------------------------------------
-       DAILY SCHEDULE TABLE
-    ----------------------------------------- */
+    /* -----------------------------------------
+      DAILY SCHEDULE TABLE
+   ----------------------------------------- */
     function highlightCurrentDaily() {
       const now = new Date();
       //const now = new Date("Fri Dec 19 2025 18:57:36 GMT+0530 (India Standard Time)"); //for setting DateTime by own
@@ -651,21 +661,25 @@
       const minsNow = now.getHours() * 60 + now.getMinutes();
 
       //*==== Star starts*//
-     /*const stars=["","கவனம்","சந்தம்","மறதி்","ஓவிவு்","சிக்கல்","ஆக்கம்","நல்லம்","செலவு","பொறுமை","அமைதி",
-     "நன்மை","கவனம்","போட்டி","இரக்கம்","சந்தம்","தர்மம்","அன்பு","அச்சம்","வரவு","பக்தி",
-     "உதவி","ஆசை","நிறைவு","பணிவு","செலவு","பணிவு","மேன்மை","முயற்சி","அமைதி","வரவு","களிப்பு","Not found"];*/
-             /*  const stars=["","சுகம்","கவலை","ஆதாயம்","மேன்மை","சுகம்","அமைதி","களிப்பு","உயர்வு","சுகம்","நன்மை",
-            "உதவி","ஈகை","அலைச்சல்","பாசம்","விருத்தி","சிரமம்","வாழ்வு","அலைச்சல்","சினம்","முயற்சி",
-            "இன்பம்","மறதி","வெற்றி","நிறைவு","பரிசு","நட்பு","கவனம்","வெற்றி","Not found"]; Feb-2026*/
+      /*const stars=["","கவனம்","சந்தம்","மறதி்","ஓவிவு்","சிக்கல்","ஆக்கம்","நல்லம்","செலவு","பொறுமை","அமைதி",
+      "நன்மை","கவனம்","போட்டி","இரக்கம்","சந்தம்","தர்மம்","அன்பு","அச்சம்","வரவு","பக்தி",
+      "உதவி","ஆசை","நிறைவு","பணிவு","செலவு","பணிவு","மேன்மை","முயற்சி","அமைதி","வரவு","களிப்பு","Not found"];*/
+      /*  const stars=["","சுகம்","கவலை","ஆதாயம்","மேன்மை","சுகம்","அமைதி","களிப்பு","உயர்வு","சுகம்","நன்மை",
+     "உதவி","ஈகை","அலைச்சல்","பாசம்","விருத்தி","சிரமம்","வாழ்வு","அலைச்சல்","சினம்","முயற்சி",
+     "இன்பம்","மறதி","வெற்றி","நிறைவு","பரிசு","நட்பு","கவனம்","வெற்றி","Not found"]; Feb-2026*/
       //           const stars = ["செலவு", "இன்பம்", "எதிர்ப்பு", "கோபம்", "தனம்", "நற்செயல்", "அலைச்சல்", "மகிழிச்சி", "பொறுமை", "புகழ்",
       // "பாராட்டு", "ஆதாயம்", "நட்பு", "போட்டி", "எதிர்ப்பு", "நட்பு", "நன்மை", "எதிர்ப்பு", "சுபம்", "	கவனம்",
       // "	எதிர்ப்பு", "உழைப்பு", "நட்பு", "பிரிதி", "	புகழ்", "லாபம்", "அன்பு", "	ஆதரவு	", "களிப்பு", "வீரம்", "ஆதரவு","Not found"];
-          const stars = ["பரிசு", "தடங்கல்", "	வெற்றி", "ஆக்கம்", "நன்மை", "ஊக்கம்", "கவலை", "நட்பு", "சிக்கல்", "அசதி",
-      "ஆதாயம்", "லாபம்", "பக்தி", "சலனம்", "உயர்வு", "லாபம்", "அன்பு", "நன்மை", "சுகம்", "கவலை",
-      "ஆதாயம்", "மேன்மை", "ஆதரவு", "நற்செயல்", "களிப்பு", "கவலை", "எதிர்ப்பு", "மேன்மை", "தாமதம்	", "நிறைவு","Not found"]; //April-2026
+      // const stars = ["பரிசு", "தடங்கல்", "	வெற்றி", "ஆக்கம்", "நன்மை", "ஊக்கம்", "கவலை", "நட்பு", "சிக்கல்", "அசதி",
+      //   "ஆதாயம்", "லாபம்", "பக்தி", "சலனம்", "உயர்வு", "லாபம்", "அன்பு", "நன்மை", "சுகம்", "கவலை",
+      //   "ஆதாயம்", "மேன்மை", "ஆதரவு", "நற்செயல்", "களிப்பு", "கவலை", "எதிர்ப்பு", "மேன்மை", "தாமதம்	", "நிறைவு", "Not found"]; //April-2026
 
-        document.getElementById("starInfo").textContent=`Rasi : ${stars[date-1]}`;
-        document.getElementById("starInfoTomorrow").textContent=`T_Rasi : ${stars[date]}`;
+      const stars = ["சுபம்", "விவேகம்", "சின்தன்னை", "நட்பு", "தெளிவு", "எதிர்ப்பு", "சிக்கல்", "நட்பு", "அமைதி", "நல்லம்",
+        "மேன்மை", "வரவு", "அசதி", "வெற்றி", "இன்சொல்", "அமைதி", "நன்மை", "உயர்வு", "போட்டி", "உற்சாகம்",
+        "பரிசு", "ஆதரவு", "பெருமை", "ஆர்வம்", "பரிசு", "தெளிவு", "ஆக்கம்", "போட்டி", "வாழ்வு", "சுபம்", "ஆதாயம்", "Not found"]; //May-2026
+
+      document.getElementById("starInfo").textContent = `Rasi : ${stars[date - 1]}`;
+      document.getElementById("starInfoTomorrow").textContent = `T_Rasi : ${stars[date]}`;
       //*==== Star Ends*//
 
       const table = document.getElementById("scheduleTable");
@@ -705,8 +719,8 @@
 
           if (parts[1] != undefined) {
             const [s1, e1] = parseRange(parts[0].trim());
-           // if (minsNow >= e1) {time1.classList.add("text-decoration-line-through");time1.classList.add("fw-normal");}// this one
-           if (minsNow >= e1) time1.classList.add("d-none");// or this one
+            // if (minsNow >= e1) {time1.classList.add("text-decoration-line-through");time1.classList.add("fw-normal");}// this one
+            if (minsNow >= e1) time1.classList.add("d-none");// or this one
           }
 
         });
@@ -730,21 +744,21 @@
     function refresh() {
       const now = new Date();
       //const time = now.toLocaleTimeString(); //  24-hour format
-        const time = now.toLocaleTimeString('en-US', { hour12: true }); // force 12-hour format
+      const time = now.toLocaleTimeString('en-US', { hour12: true }); // force 12-hour format
       document.getElementById("nowTimer").innerText = time.toString();
     }
-      function checkConnection() {
-    if (!navigator.onLine) {
-      document.body.innerHTML = `
+    function checkConnection() {
+      if (!navigator.onLine) {
+        document.body.innerHTML = `
         <div style="text-align:center; padding:40px;">
           <h2>No Internet Connection</h2>
           <p>Please connect to the internet.</p>
         </div>`;
+      }
     }
-  }
 
-  window.addEventListener("load", checkConnection);
-  window.addEventListener("offline", checkConnection);
+    window.addEventListener("load", checkConnection);
+    window.addEventListener("offline", checkConnection);
     refresh();
     renderMobileView();
     highlightCurrentDaily();
